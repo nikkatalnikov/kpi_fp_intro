@@ -7,7 +7,10 @@ object Task3 {
 
   def task3[T](s1: Seq[T], s2: Seq[T]): Seq[T] = {
     val seed: Seq[T] = Seq()
-    s1.foldLeft(seed)((acc, x) => if (s2 contains x ) acc else acc :+ x)
+    if (s1.size > s2.size)
+      s1.foldLeft(seed)((acc, x) => if (s2 contains x) acc else acc :+ x)
+    else
+      s2.foldLeft(seed)((acc, x) => if (s1 contains x) acc else acc :+ x)
   }
 
   def task3[T](s1: Set[T], s2: Set[T]): Set[T] = {
